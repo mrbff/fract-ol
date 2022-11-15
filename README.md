@@ -9,3 +9,4 @@ https://www.youtube.com/watch?v=QBy-ZMrSQpE
 http://www.albertostrumia.it/sites/default/files/Fractals/FractalGallery2/FractalGallery2.html
 https://www.quora.com/What-is-the-simplest-fractal-generator-script-in-C-or-some-other-common-programming-language
 https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
+https://acko.net/blog/how-to-fold-a-julia-fractal/
