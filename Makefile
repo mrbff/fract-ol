@@ -5,45 +5,60 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mabaffo <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/10 22:45:01 by mabaffo           #+#    #+#              #
-#    Updated: 2022/11/17 15:50:07 by mabaffo          ###   ########.fr        #
+#    Created: 2022/12/07 18:05:37 by mabaffo           #+#    #+#              #
+#    Updated: 2022/12/07 18:05:52 by mabaffo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Program		= fract-ol
+NAME			=	fractol
 
-files 	   = 
-CC	= gcc
+SRCS_DIR		=	./sources/
 
-CFLAGS	= -Wall -Wextra -Werror
+AR				=	ar
+ARFLAGS			=	rcs
 
-Libftmake	= @make -C libft/
+SRCS_F			=	main.c \
+					init_mlx.c \
+					ft_put_image_to_window.c \
+					ft_draw_pixels.c \
+					hooks.c \
+					ft_set.c \
+					ft_init_fract.c \
+					ft_destroy_fractol.c \
+					ft_mandelbrot.c \
+					ft_julia.c \
+					ft_burning_ship.c \
+					usage_and_errors.c
 
-Libft		= libft.a
+SRCS			= 	$(addprefix $(SRCS_DIR), $(SRCS_F))
 
-Rename		= mv libft/$(Libft) ./ && mv $(Libft) $(OUTN)
+OBJS			=	$(SRCS:.c=.o)
 
-OUTN	= $(Library).a
+CC				=	gcc
+CC_FLAGS		= 	-Wall -Wextra -Werror -g -O3
 
-OFILES	= $(files:%=%.o)
+RM				=	rm -f
 
-NAME	= $(OUTN)
+LIBFT			=	libft/libft.a
 
-$(NAME): $(OFILES) 
-	$(Libftmake)
-	$(Rename)
-	ar -rsv $(OUTN) $(OFILES)
+.c.o:			
+				$(CC) $(C_FLAGS) -c $< -o $(<:.c=.o) -I includes/
 
-all: $(NAME)
+$(NAME):		$(OBJS)
+				make -sC minilibx-linux  all
+				make -sC libft all
+				$(CC) $(CC_FLAGS) $(OBJS) $(LIBFT) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm
+
+all:			$(NAME)
 
 clean:
-	rm -f $(NAME)
-	rm -f $(OFILES)
-	@make clean -C libft/
+				make -sC ./minilibx-linux clean
+				make -sC ./libft clean
+				$(RM) $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:			clean
+				$(RM) $(NAME) $(LIBFT)
 
-re: fclean all
+re:				fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY:			all clean fclean re
