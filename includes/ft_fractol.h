@@ -20,7 +20,7 @@
 
 # define WIN_WIDTH 600
 # define WIN_HEIGHT 600
-# define MAX_ITER 2
+# define IN_MAX_ITER 150
 
 # define KEY_C 99
 # define KEY_Z 122
@@ -62,6 +62,7 @@ typedef struct s_fractol
 	double	iteration;
 	double	temp;
 	float	display_shift;
+	int	max_iter;
 	t_img	*img;
 }				t_fractol;
 

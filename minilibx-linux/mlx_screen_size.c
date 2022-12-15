@@ -1,6 +1,6 @@
 #include	"mlx_int.h"
 
-void		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)
+int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)
 {
 	XWindowAttributes	xwAttr;
 	Status				ret;

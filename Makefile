@@ -45,8 +45,8 @@ LIBFT			=	libft/libft.a
 				$(CC) $(C_FLAGS) -c $< -o $(<:.c=.o) -I includes/
 
 $(NAME):		$(OBJS)
-				make -sC minilibx-linux  all
-				make -sC libft all
+				make -sC minilibx-linux
+				make -sC libft
 				$(CC) $(CC_FLAGS) $(OBJS) $(LIBFT) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm
 
 all:			$(NAME)

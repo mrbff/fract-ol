@@ -6,7 +6,7 @@ int		mlx_mouse_move(t_xvar *xvar, t_win_list *win, int x, int y)
 	return (0);
 }
 
-void		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)
+int		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)
 {
 	static char data[1] = {0};
 	Cursor cursor;
@@ -20,7 +20,7 @@ void		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)
 	XFreeCursor(xvar->display, cursor);
 }
 
-void		mlx_mouse_show(t_xvar *xvar, t_win_list *win)
+int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)
 {
 	XUndefineCursor(xvar->display, win->window);
 }

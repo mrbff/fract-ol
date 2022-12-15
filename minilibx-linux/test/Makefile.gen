@@ -5,7 +5,7 @@ INCLIB=$(INC)/../lib
 
 UNAME := $(shell uname)
 
-CFLAGS= -I$(INC) -O3 -I.. -g -w
+CFLAGS= -I$(INC) -O3 -I.. -g
 
 NAME= mlx-test
 SRC = main.c
@@ -22,7 +22,7 @@ else ifeq ($(UNAME), FreeBSD)
 else
 	#Linux and others...
 	CC	= gcc
-	LFLAGS += --warn-undefined-variables -lbsd
+	LFLAGS += -lbsd
 endif
 
 all: $(NAME)
@@ -43,4 +43,3 @@ clean:
 	rm -f $(NAME) $(OBJ) *~ core *.core
 
 re: clean all
-.SILENT:

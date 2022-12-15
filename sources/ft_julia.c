@@ -37,7 +37,7 @@ void	ft_julia(t_fractol *ptr)
 		{
 			ft_init_fract(ptr);
 			while (ptr->z_real * ptr->z_real + ptr->z_im * ptr->z_im < 4
-				&& ptr->iteration < MAX_ITER)
+				&& ptr->iteration < ptr->max_iter)
 			{
 				ptr->temp = ptr->z_real;
 				ptr->z_real = ptr->z_real * ptr->z_real - ptr->z_im * ptr->z_im
@@ -46,7 +46,7 @@ void	ft_julia(t_fractol *ptr)
 				ptr->iteration++;
 			}
 			ft_draw_pixels(ptr->x, ptr->y,
-				ptr->iteration * ptr->color / MAX_ITER, ptr);
+				ptr->iteration * ptr->color / IN_MAX_ITER, ptr);
 			ptr->y++;
 		}
 		ptr->x++;

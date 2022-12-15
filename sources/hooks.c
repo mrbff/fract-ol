@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
-
+#include <stdio.h>//
 int	ft_zoom_hook(int keycode, int x, int y, t_fractol *ptr)
 {
-	double	tmp_x;
-	double	tmp_y;
+	double		tmp_x;
+	double		tmp_y;
 
 	tmp_x = x / ptr->zoom + ptr->x_min;
 	tmp_y = y / ptr->zoom + ptr->y_min;
@@ -23,12 +23,18 @@ int	ft_zoom_hook(int keycode, int x, int y, t_fractol *ptr)
 	{
 		ptr->zoom *= 1.1;
 		ptr->display_shift /= 1.1;
+		if (ptr->zoom > IN_MAX_ITER)
+			ptr->max_iter += 1;
 	}
 	if (keycode == ZOOM_OUT)
 	{
 		ptr->zoom /= 1.1;
 		ptr->display_shift *= 1.1;
+		if (ptr->max_iter > IN_MAX_ITER)
+			ptr->max_iter -= 1;
 	}
+	printf("zoom = %f\n", ptr->zoom);//
+	ft_printf("max_iter = %d\n", ptr->max_iter);
 	ptr->x_min = tmp_x - (x / ptr->zoom);
 	ptr->y_min = tmp_y - (y / ptr->zoom);
 	ft_put_image_to_window(ptr);
@@ -73,10 +79,12 @@ void	ft_color(int keycode, t_fractol *ptr)
 	else if (keycode == KEY_C || keycode == KEY_Z)
 		i = ft_chc(keycode, i);
 	ptr->color = col_arr[i];
+	ft_printf("color = %X\n", ptr->color);
 }
 
 int	ft_key_hook(int keycode, t_fractol *ptr)
 {
+	ft_printf("keycode = %d\n", keycode);
 	if (keycode == ESC)
 		ft_destroy_fractol(ptr);
 	else if (keycode == KEY_C || keycode == KEY_Z || keycode == KEY_R)

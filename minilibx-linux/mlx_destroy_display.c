@@ -12,7 +12,7 @@
 
 #include "mlx_int.h"
 
-void	mlx_destroy_display(t_xvar *xvar)
+int	mlx_destroy_display(t_xvar *xvar)
 {
 	XCloseDisplay(xvar->display);
 }

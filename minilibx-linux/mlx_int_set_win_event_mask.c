@@ -14,7 +14,7 @@
 
 
 
-void	mlx_int_set_win_event_mask(t_xvar *xvar)
+int	mlx_int_set_win_event_mask(t_xvar *xvar)
 {
   t_win_list	*win;
   int		mask;
