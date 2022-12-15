@@ -78,7 +78,7 @@ OBFILES  = $(BFILES:%=%.o)
 
 $(NAME):
 	$(CC) $(CFLAGS) -c $(CFILES) -I./
-	ar -rsv $(OUTN) $(OFILES)
+	ar -rs $(OUTN) $(OFILES)
 
 all: $(NAME)
 
@@ -92,6 +92,6 @@ re: fclean all
 
 bonus:
 	$(CC) $(CFLAGS) -c $(CBFILES) -I./
-	ar -rsv $(OUTN) $(OBFILES)
+	ar -rs $(OUTN) $(OBFILES)
 
 .PHONY: all, clean, fclean, re, bonus

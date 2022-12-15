@@ -22,5 +22,5 @@ void	ft_set(t_fractol *ptr, int type)
 	ptr->zoom = IN_MAX_ITER;
 	ptr->display_shift = 0.1;
 	ptr->max_iter = IN_MAX_ITER;
-	ptr->color = 0xFF686A9E;
+	ptr->color = 0x10E;
 }

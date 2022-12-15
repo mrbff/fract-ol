@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
-#include <stdio.h>//
+
 int	ft_zoom_hook(int keycode, int x, int y, t_fractol *ptr)
 {
 	double		tmp_x;
@@ -24,16 +24,16 @@ int	ft_zoom_hook(int keycode, int x, int y, t_fractol *ptr)
 		ptr->zoom *= 1.1;
 		ptr->display_shift /= 1.1;
 		if (ptr->zoom > IN_MAX_ITER)
-			ptr->max_iter += 1;
+			ptr->max_iter += 3;
 	}
 	if (keycode == ZOOM_OUT)
 	{
 		ptr->zoom /= 1.1;
 		ptr->display_shift *= 1.1;
 		if (ptr->max_iter > IN_MAX_ITER)
-			ptr->max_iter -= 1;
+			ptr->max_iter -= 3;
 	}
-	printf("zoom = %f\n", ptr->zoom);//
+//	printf("zoom = %f\n", ptr->zoom);
 	ft_printf("max_iter = %d\n", ptr->max_iter);
 	ptr->x_min = tmp_x - (x / ptr->zoom);
 	ptr->y_min = tmp_y - (y / ptr->zoom);
@@ -45,7 +45,7 @@ int	ft_chc(int keycode, int i)
 {
 	if (keycode == KEY_C)
 	{
-		if (i < 31)
+		if (i < 30)
 			i++;
 		else
 			i = 0;
@@ -67,12 +67,13 @@ void	ft_color(int keycode, t_fractol *ptr)
 
 	col_arr = (unsigned long [31])
 	{
-		0xFF686A9E, 0xFFFFFFFF, 0xFF683F60, 0xFF671780, 0x950FB0,
+		0x10E, 0xFF686A9E, 0xFF683F60, 0xFF671780, 0x950FB0,
 		0x994A90, 0xF88888888, 0xFF6D8FC0, 0x89B660, 0xFFFE898F,
 		0xFF6D8FC0, 0xFFC10F00, 0xFF66B0F0, 0x66180, 0x286D0,
-		0x10E, 0xFFC3AC60, 0x99D2A0, 0x23C20, 0xDFD440, 0x94DC60,
+		0xFFC3AC60, 0x99D2A0, 0x23C20, 0xDFD440, 0x94DC60,
 		0xFF5D8FC0, 0xFF4E7830, 0x950FB0, 0xFF676670, 0xE34C10,
-		0x34910, 0xFF671780, 0xFFA90CC, 0x9AFC80, 0xFF6888E0
+		0x34910, 0xFF671780, 0xFFA90CC, 0x9AFC80, 0xFF6888E0,
+		0xFFFFFFFF
 	};
 	if (keycode == KEY_R)
 		ft_set(ptr, ptr->fractal_name);
