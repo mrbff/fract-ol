@@ -47,7 +47,7 @@ LIBFT			=	libft/libft.a
 $(NAME):		$(OBJS)
 				make -sC minilibx-linux
 				make -sC libft
-				$(CC) $(CC_FLAGS) $(OBJS) $(LIBFT) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm
+				$(CC) $(CC_FLAGS) $(OBJS) $(LIBFT) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm -pthread
 
 all:			$(NAME)
 

@@ -17,6 +17,8 @@
 # include "../libft/libft.h"
 # include <math.h>
 # include <stdlib.h>
+# include <pthread.h>
+# include <stdbool.h>
 
 # define WIN_WIDTH 600
 # define WIN_HEIGHT 600
@@ -25,6 +27,7 @@
 # define KEY_C 99
 # define KEY_Z 122
 # define KEY_R 114
+# define KEY_I 105
 # define ESC 65307
 # define ARROW_LEFT 65361
 # define ARROW_UP 65362
@@ -63,6 +66,7 @@ typedef struct s_fractol
 	double	temp;
 	float	display_shift;
 	int	max_iter;
+	bool	incr_iter;
 	t_img	*img;
 }				t_fractol;
 

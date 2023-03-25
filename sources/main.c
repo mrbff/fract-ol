@@ -32,11 +32,11 @@ int	main(int ac, char **av)
 
 int	ft_check_and_set(t_fractol *ptr, char **av, int ac)
 {
-	if (!ft_strncmp("mandelbrot", av[1], 10))
+	if (!ft_strncmp("mandelbrot", av[1], ft_strlen(av[1])))
 		ft_set(ptr, 1);
-	else if (!ft_strncmp("julia", av[1], 5))
+	else if (!ft_strncmp("julia", av[1], ft_strlen(av[1])))
 		ft_julia_param(ac, av, ptr);
-	else if (!ft_strncmp("burning-ship", av[1], 11))
+	else if (!ft_strncmp("burning-ship", av[1], ft_strlen(av[1])))
 		ft_set(ptr, 3);
 	else
 		return (1);

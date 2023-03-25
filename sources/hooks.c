@@ -23,7 +23,7 @@ int	ft_zoom_hook(int keycode, int x, int y, t_fractol *ptr)
 	{
 		ptr->zoom *= 1.1;
 		ptr->display_shift /= 1.1;
-		if (ptr->zoom > IN_MAX_ITER)
+		if (ptr->zoom > IN_MAX_ITER && ptr->incr_iter)
 			ptr->max_iter += 3;
 	}
 	if (keycode == ZOOM_OUT)
@@ -98,6 +98,8 @@ int	ft_key_hook(int keycode, t_fractol *ptr)
 		ptr->x_min = ptr->x_min - ptr->display_shift;
 	else if (keycode == ARROW_RIGHT)
 		ptr->x_min = ptr->x_min + ptr->display_shift;
+	else if (keycode == KEY_I)
+		ptr->incr_iter = !ptr->incr_iter;
 	ft_put_image_to_window(ptr);
 	return (0);
 }
