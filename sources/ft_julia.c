@@ -29,8 +29,9 @@ void	ft_julia_param(int argc, char *argv[], t_fractol *ptr)
 
 void	ft_julia(t_fractol *ptr)
 {
-	ptr->x = 0;
-	while (ptr->x < WIN_WIDTH)
+	ptr->x = ptr->xt;
+//	printf("\nx = %d e limit = %d\n", ptr->x, ptr->xt + (WIN_WIDTH / NTHREADS));
+	while (ptr->x < ptr->xt + (WIN_WIDTH / NTHREADS))
 	{
 		ptr->y = 0;
 		while (ptr->y < WIN_HEIGHT)

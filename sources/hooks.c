@@ -30,7 +30,7 @@ int	ft_zoom_hook(int keycode, int x, int y, t_fractol *ptr)
 	{
 		ptr->zoom /= 1.1;
 		ptr->display_shift *= 1.1;
-		if (ptr->max_iter > IN_MAX_ITER)
+		if (ptr->max_iter > IN_MAX_ITER && ptr->incr_iter)
 			ptr->max_iter -= 3;
 	}
 //	printf("zoom = %f\n", ptr->zoom);

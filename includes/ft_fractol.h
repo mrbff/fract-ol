@@ -23,6 +23,7 @@
 # define WIN_WIDTH 600
 # define WIN_HEIGHT 600
 # define IN_MAX_ITER 150
+# define NTHREADS 12
 
 # define KEY_C 99
 # define KEY_Z 122
@@ -67,8 +68,11 @@ typedef struct s_fractol
 	float	display_shift;
 	int	max_iter;
 	bool	incr_iter;
+	int		xt;
 	t_img	*img;
 }				t_fractol;
+
+extern pthread_mutex_t	mux;
 
 void			ft_error_message(void);
 void			ft_usage_message(void);
