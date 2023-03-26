@@ -12,13 +12,10 @@
 
 #include "../includes/ft_fractol.h"
 
-pthread_mutex_t	mux;
-
 int	main(int ac, char **av)
 {
 	t_fractol	ptr[NTHREADS];
-	int			i;
-	
+
 	ptr->img = malloc(sizeof(t_img));
 	if (!ptr->img)
 		ft_error_message();

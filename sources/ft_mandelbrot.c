@@ -14,7 +14,7 @@
 
 void	ft_mandelbrot(t_fractol *ptr)
 {
-	ptr->x = ptr->xt;//-1;
+	ptr->x = ptr->xt;
 	while (ptr->x < ptr->xt + (WIN_WIDTH / NTHREADS))
 	{
 		ptr->y = 0;

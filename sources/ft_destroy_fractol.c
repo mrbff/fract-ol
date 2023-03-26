@@ -19,7 +19,6 @@ int	ft_destroy_fractol(t_fractol *ptr)
 	mlx_destroy_display(ptr->mlx_ptr);
 	free(ptr->img);
 	free(ptr->mlx_ptr);
-	free(ptr);
 	exit(0);
 	return (0);
 }

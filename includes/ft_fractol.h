@@ -72,8 +72,6 @@ typedef struct s_fractol
 	t_img	*img;
 }				t_fractol;
 
-extern pthread_mutex_t	mux;
-
 void			ft_error_message(void);
 void			ft_usage_message(void);
 void			ft_julia_usage_message(void);

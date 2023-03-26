@@ -39,13 +39,15 @@ static void	ft_replicant(t_fractol *ptr)
 {
 	int i;
 
+	ptr[0].xt = 0;
 	i = 0;
 	while (++i < NTHREADS)
-	{
+	{	 
 		ptr[i].mlx_win = ptr[0].mlx_win;
 		ptr[i].mlx_ptr = ptr[0].mlx_ptr;
-		ptr[i].color = ptr[0].color;
 		ptr[i].fractal_name = ptr[0].fractal_name;
+		ptr[i].img = ptr[0].img;
+		ptr[i].color = ptr[0].color;
 		ptr[i].x = ptr[0].x;
 		ptr[i].x_min = ptr[0].x_min;
 		ptr[i].x_max = ptr[0].x_max;
@@ -62,7 +64,6 @@ static void	ft_replicant(t_fractol *ptr)
 		ptr[i].display_shift = ptr[0].display_shift;
 		ptr[i].max_iter = ptr[0].max_iter;
 		ptr[i].incr_iter = ptr[0].incr_iter;
-		ptr[i].img = ptr[0].img;
 		ptr[i].xt = ptr[i - 1].xt + (WIN_WIDTH / NTHREADS);
 	}
 }
@@ -70,14 +71,10 @@ static void	ft_replicant(t_fractol *ptr)
 void	ft_launch_fractal(t_fractol *ptr)
 {
 	int	i;
-	pthread_t *th;
+	pthread_t th[NTHREADS];
 	
-	i = -1;
-	th = malloc(sizeof(pthread_t) * NTHREADS);
-	if (!th)
-		return ;
-	ptr->xt = 0;
 	ft_replicant(ptr);
+	i = -1;
 	if (ptr->fractal_name == 1)
 	{
 		while (++i < NTHREADS)

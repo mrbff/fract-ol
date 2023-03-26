@@ -14,8 +14,8 @@
 
 void	ft_burning_ship(t_fractol *ptr)
 {
-	ptr->x = ptr->xt;//-1;
-	while (++ptr->x < ptr->xt + (WIN_WIDTH / NTHREADS))
+	ptr->x = ptr->xt;
+	while (ptr->x < ptr->xt + (WIN_WIDTH / NTHREADS))
 	{
 		ptr->y = 0;
 		while (ptr->y < WIN_HEIGHT)
@@ -34,6 +34,7 @@ void	ft_burning_ship(t_fractol *ptr)
 				ptr->iteration * ptr->color / IN_MAX_ITER, ptr);
 			ptr->y++;
 		}
+		ptr->x++;
 	}
 }
 /* The difference between this calculation and that for the Mandelbrot
