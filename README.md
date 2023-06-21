@@ -12,6 +12,8 @@ Use the arrow keys to move, 'I' key to stop and restart the increasing of iterat
 
 'C' and 'Z' to change color palette and 'R' to reset the fractal.
 
+Use the mouse to zoom where you want.
+
 
 
 
